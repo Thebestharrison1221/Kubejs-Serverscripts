@@ -67,11 +67,21 @@ main
      A: 'kubejs:unfired_steel_ingot' 
    })
 
-   //9 ingot to 1 block
-   event.shapeless('9x unfired_steel_ingot', [
+    //andesite alloy sheet fix
+   event.shapeless('1x unfired_steel_ingot', [
      'unfired_steel_block',
    ])
-
+    
+   //1 ingot to 1 block
+   event.shapeless('1x create_dd:andesite_sheet', [
+     'createdeco:andesite_sheet',
+   ])
+   
+    //9 ingot to 1 block
+   event.shapeless('1x createdeco:andesite_sheet', [
+     'create_dd:andesite_sheet',
+   ])
+    
    //unfired to unpolished
    ServerEvents.recipes(event => {
     event.recipes.create.filling('kubejs:unpolished_steel_block', [Fluid.lava(), 'kubejs:steel_block'])
